@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane fx:controller="sinavproje.ui.controllers.HomeController" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<children>
+    <VBox alignment="CENTER" prefHeight="312.0" prefWidth="506.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <children>
+            <Label fx:id="homeTitle" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="SINAV PROJE" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="25.0" />
+                </font>
+                <padding>
+                    <Insets bottom="20.0" />
+                </padding>
+            </Label>
+            <Label alignment="CENTER" layoutX="117.0" layoutY="188.0" nodeOrientation="LEFT_TO_RIGHT" text="\@Xacnio" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="25.0" />
+                </font>
+                <padding>
+                    <Insets bottom="20.0" />
+                </padding>
+            </Label>
+        </children>
+    </VBox>
+</children>
+</AnchorPane>

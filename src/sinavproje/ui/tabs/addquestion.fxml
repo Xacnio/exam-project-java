@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<AnchorPane fx:controller="sinavproje.ui.controllers.AddQuestionController" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <children>
+        <VBox alignment="CENTER" prefHeight="312.0" prefWidth="506.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="SORU EKLE" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="20.0" />
+                    </padding>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <GridPane prefHeight="252.0" prefWidth="560.0">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="275.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="275.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Soru:">
+                                    <GridPane.margin>
+                                        <Insets right="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label text="Soru Tipi:" GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets right="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label text="Soru Zorluğu:" GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets right="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <children>
+                                        <RadioButton id="optionTypeClassic" mnemonicParsing="false" selected="true" text="Klasik">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="type" />
+                                            </toggleGroup>
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                        </RadioButton>
+                                        <RadioButton id="optionTypeTest" mnemonicParsing="false" text="Çoktan Seçmeli" toggleGroup="$type">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin>
+                                        </RadioButton>
+                                        <RadioButton id="optionTypeTrueFalse" mnemonicParsing="false" text="Doğru/Yanlış" toggleGroup="$type">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin>
+                                        </RadioButton>
+                                        <RadioButton id="optionTypeGapFilling" mnemonicParsing="false" text="Boşluk Doldurma" toggleGroup="$type">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin>
+                                        </RadioButton>
+                                    </children>
+                                </HBox>
+                                <Button fx:id="submitAddQuestion" mnemonicParsing="false" text="Ekle" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+                                <TextArea fx:id="questionText" prefHeight="200.0" prefWidth="200.0" promptText="Soru içeriğini yazınız." GridPane.columnIndex="1" />
+                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <children>
+                                        <RadioButton mnemonicParsing="false" selected="true" text="Kolay">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="difficulty" />
+                                            </toggleGroup>
+                                        </RadioButton>
+                                        <RadioButton mnemonicParsing="false" text="Orta" toggleGroup="$difficulty">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin>
+                                        </RadioButton>
+                                        <RadioButton mnemonicParsing="false" text="Zor" toggleGroup="$difficulty">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin>
+                                        </RadioButton>
+                                    </children>
+                                </HBox>
+                                <Label text="Soru Puanı:" GridPane.rowIndex="3">
+                                    <GridPane.margin>
+                                        <Insets right="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <TextField fx:id="questionPoint" maxWidth="50.0" prefHeight="25.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+                                <TextField fx:id="optionA" disable="true" promptText="A şıkkının cevabını yazın" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <TextField fx:id="optionB" disable="true" promptText="B şıkkının cevabını yazın" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                <TextField fx:id="optionC" disable="true" promptText="C şıkkının cevabını yazın" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                <TextField fx:id="optionD" disable="true" promptText="D şıkkının cevabını yazın" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                <TextField fx:id="optionE" disable="true" promptText="E şıkkının cevabını yazın" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                <Label fx:id="addQuestionError" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="SoruEkleHata" textAlignment="CENTER" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="optionGapFillingText" disable="true" promptText="Boşluk Doldurma Cevabı" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <children>
+                                        <RadioButton id="optionTrue" fx:id="optionTrue" disable="true" mnemonicParsing="false" text="Doğru">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="truefalse" />
+                                            </toggleGroup>
+                                        </RadioButton>
+                                        <RadioButton id="optionFalse" fx:id="optionFalse" disable="true" mnemonicParsing="false" text="Yanlış" toggleGroup="$truefalse">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin>
+                                        </RadioButton>
+                                    </children>
+                                </HBox>
+                                <RadioButton id="optionAnswerA" fx:id="optionAnswerA" disable="true" mnemonicParsing="false" toggleGroup="$testTrueAnswer" GridPane.rowIndex="6">
+                                    <padding>
+                                        <Insets right="5.0" />
+                                    </padding>
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="testTrueAnswer" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton id="optionAnswerB" fx:id="optionAnswerB" disable="true" mnemonicParsing="false" toggleGroup="$testTrueAnswer" GridPane.rowIndex="7">
+                                    <padding>
+                                        <Insets right="5.0" />
+                                    </padding>
+                                </RadioButton>
+                                <RadioButton id="optionAnswerC" fx:id="optionAnswerC" disable="true" mnemonicParsing="false" toggleGroup="$testTrueAnswer" GridPane.rowIndex="8">
+                                    <padding>
+                                        <Insets right="5.0" />
+                                    </padding>
+                                </RadioButton>
+                                <RadioButton id="optionAnswerD" fx:id="optionAnswerD" disable="true" mnemonicParsing="false" toggleGroup="$testTrueAnswer" GridPane.rowIndex="9">
+                                    <padding>
+                                        <Insets right="5.0" />
+                                    </padding>
+                                </RadioButton>
+                                <RadioButton id="optionAnswerE" fx:id="optionAnswerE" disable="true" mnemonicParsing="false" toggleGroup="$testTrueAnswer" GridPane.rowIndex="10">
+                                    <padding>
+                                        <Insets right="5.0" />
+                                    </padding>
+                                </RadioButton>
+                            </children>
+                        </GridPane>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<TabPane fx:id="mainTab" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="691.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sinavproje.ui.controllers.MainController">
+  <tabs>
+    <Tab id="homeTab" text="\@">
+      <content>
+         <fx:include fx:id="incHomeTab" source="tabs/home.fxml" />
+      </content>
+    </Tab>
+   <Tab id="questionsTab" text="Soru Listesi">
+      <content>
+         <fx:include fx:id="incQuestionsTab" source="tabs/questions.fxml" />
+      </content>
+   </Tab>
+  <Tab id="addQuestionTab" text="Soru Ekle">
+     <content>
+         <fx:include fx:id="addQuestionTab" source="tabs/addquestion.fxml" />
+     </content>
+  </Tab>
+  <Tab id="importExportTab" text="Soruları Dışa Aktar/İçe Aktar">
+      <content>
+          <fx:include fx:id="importExportTab" source="tabs/importexport.fxml" />
+      </content>
+  </Tab>
+  <Tab id="createExamTab" text="Sınav Yarat/Çöz">
+      <content>
+          <fx:include fx:id="createExamTab" source="tabs/exam.fxml" />
+      </content>
+  </Tab>
+  </tabs>
+</TabPane>

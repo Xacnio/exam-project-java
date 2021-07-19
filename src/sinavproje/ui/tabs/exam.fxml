@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="newExamPane" minHeight="0.0" minWidth="0.0" prefHeight="633.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sinavproje.ui.controllers.ExamController">
+    <children>
+      <VBox prefHeight="47.0" prefWidth="778.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+                   <GridPane fx:id="examButtons" alignment="TOP_CENTER" prefWidth="798.0" visible="false">
+                       <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="10.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
+                       </columnConstraints>
+                       <rowConstraints>
+                           <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                       </rowConstraints>
+                       <children>
+                           <Button fx:id="nextButton" alignment="CENTER_RIGHT" mnemonicParsing="false" text="Sonraki" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+                           <Label fx:id="counter" text="0/30" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                               <font>
+                                   <Font name="System Bold" size="15.0" />
+                               </font>
+                           </Label>
+                           <Button fx:id="previousButton" mnemonicParsing="false" text="Önceki" GridPane.columnIndex="2" GridPane.valignment="CENTER" />
+                           <Button fx:id="finishButton" alignment="CENTER_RIGHT" mnemonicParsing="false" text="Sınavı Bitir" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                  <Label fx:id="examName" text="Sınav Adı: deneme" GridPane.columnIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                       </children>
+                   </GridPane>
+         </children>
+      </VBox>
+        <VBox fx:id="nExam" alignment="CENTER" prefHeight="312.0" prefWidth="506.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="SINAV OLUŞTUR" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="40.0" />
+                    </padding>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <GridPane prefHeight="252.0" prefWidth="560.0">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="275.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="275.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="100.0" minHeight="10.0" percentHeight="20.0" prefHeight="100.0" />
+                        <RowConstraints />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Sınav Tipi:" GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets right="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <children>
+                                        <RadioButton id="optionExamTest" mnemonicParsing="false" selected="true" text="Test">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="examType" />
+                                            </toggleGroup>
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                        </RadioButton>
+                                        <RadioButton id="optionExamClassic" mnemonicParsing="false" text="Klasik" toggleGroup="$examType">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin>
+                                        </RadioButton>
+                                        <RadioButton id="optionExamMixed" mnemonicParsing="false" text="Karışık" toggleGroup="$examType">
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin>
+                                        </RadioButton>
+                                    </children>
+                                </HBox>
+                                <Button fx:id="submitNewExam" mnemonicParsing="false" text="Oluştur" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <TextField fx:id="optionExamName" promptText="Sınav Adı Giriniz." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label fx:id="newExamMessage" alignment="CENTER" contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="SinavYaratMsg" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                        <Label text="Sınav Adı:" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                            </children>
+                        </GridPane>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+      <VBox fx:id="sExamFinish" alignment="CENTER" prefHeight="69.0" prefWidth="778.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Sınav Bitti!">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="examPoint" alignment="CENTER" contentDisplay="CENTER" layoutX="353.0" layoutY="260.0" text="Sınav Puanınız: 100/100">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="examTrueFalseBlank" alignment="CENTER" contentDisplay="CENTER" layoutX="285.0" layoutY="276.0" text="Doğru/Yanlış/Boş: 10/10/10">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Button fx:id="exportExam" mnemonicParsing="false" text="Dışarı Aktar">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+             <Button fx:id="closeExam" mnemonicParsing="false" text="Sınavı Kapat">
+                 <VBox.margin>
+                     <Insets top="20.0" />
+                 </VBox.margin>
+             </Button>
+         </children>
+      </VBox>
+        <VBox fx:id="sExamChoose" alignment="TOP_CENTER" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+            <VBox alignment="TOP_CENTER" prefHeight="312.0" prefWidth="506.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                <children>
+                    <VBox prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                            <GridPane fx:id="choiceQuestion" prefHeight="252.0" prefWidth="560.0">
+                                <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="275.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="275.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="200.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" />
+                                    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" />
+                                    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="34.0" />
+                                </rowConstraints>
+                                <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                        <children>
+                                            <Label fx:id="optionC" text="cevapC" wrapText="true">
+                                                <padding>
+                                                    <Insets left="5.0" />
+                                                </padding>
+                                            </Label>
+                                        </children>
+                                    </HBox>
+                                    <Label fx:id="sExamMessage" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="SinavYaratMsg" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                        <font>
+                                            <Font name="System Bold" size="15.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="optionA" text="cevapA" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <RadioButton fx:id="radioA" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="17.0" prefWidth="22.0" textAlignment="CENTER" GridPane.rowIndex="1">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="questionChoice" />
+                                        </toggleGroup>
+                                        <GridPane.margin>
+                                            <Insets />
+                                        </GridPane.margin>
+                                    </RadioButton>
+                                    <Label fx:id="optionB" text="cevapB" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="optionD" text="cevapD" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="optionE" text="cevapE" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <RadioButton fx:id="radioB" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="17.0" prefWidth="22.0" textAlignment="CENTER" toggleGroup="$questionChoice" GridPane.rowIndex="2" />
+                                    <RadioButton fx:id="radioC" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="17.0" prefWidth="22.0" textAlignment="CENTER" toggleGroup="$questionChoice" GridPane.rowIndex="3" />
+                                    <RadioButton fx:id="radioD" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="17.0" prefWidth="22.0" textAlignment="CENTER" toggleGroup="$questionChoice" GridPane.rowIndex="4" />
+                                    <RadioButton fx:id="radioE" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="17.0" prefWidth="22.0" textAlignment="CENTER" toggleGroup="$questionChoice" GridPane.rowIndex="5" />
+                                    <Label fx:id="labelA" text="A)" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                        <font>
+                                            <Font name="System Bold" size="15.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="labelB" text="B)" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                        <font>
+                                            <Font name="System Bold" size="15.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="labelC" text="C)" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                        <font>
+                                            <Font name="System Bold" size="15.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="labelD" text="D)" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                        <font>
+                                            <Font name="System Bold" size="15.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="labelE" text="E)" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                        <font>
+                                            <Font name="System Bold" size="15.0" />
+                                        </font>
+                                    </Label>
+                                    <RadioButton fx:id="radioNA" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="17.0" prefWidth="22.0" selected="true" textAlignment="CENTER" toggleGroup="$questionChoice" GridPane.rowIndex="6" />
+                                    <Label text="Boş Bırak" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                        <font>
+                                            <Font name="System Bold" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="questionLabel" text="Soru 3)" GridPane.columnSpan="2" GridPane.valignment="CENTER">
+                                        <font>
+                                            <Font name="System Bold" size="15.0" />
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets right="5.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="questionText" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="soruMetni" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                        <GridPane.margin>
+                                            <Insets left="5.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                </children>
+                            </GridPane>
+                        </children>
+                    </VBox>
+                </children>
+            </VBox>
+        </VBox>
+      <VBox fx:id="sExamClassic" alignment="TOP_CENTER" layoutX="20.0" layoutY="20.0" prefHeight="543.0" prefWidth="758.0" visible="false" AnchorPane.bottomAnchor="-87.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="312.0" prefWidth="506.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <GridPane fx:id="choiceQuestion1" prefHeight="561.0" prefWidth="758.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="275.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="275.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="500.0" minHeight="200.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="200.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Cevap Metniniz:" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="questionLabelClassic" text="Soru 3)" GridPane.columnSpan="2">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="questionTextClassic" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="soruMetni" wrapText="true" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextArea fx:id="questionClassicInput" prefHeight="100.0" prefWidth="487.0" promptText="İçerik girin..." GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </GridPane.margin>
+                              </TextArea>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox fx:id="sExamGapFilling" alignment="TOP_CENTER" layoutX="30.0" layoutY="60.0" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="312.0" prefWidth="506.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <GridPane fx:id="choiceQuestion11" alignment="TOP_CENTER" prefWidth="560.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="275.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="275.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="500.0" minHeight="200.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Boşluğu Doldur:" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="questionLabelGapFilling" text="Soru 3)" GridPane.columnSpan="2">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="questionTextGapFilling" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="soruMetni" wrapText="true" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="questionGapFillingInput" maxWidth="200.0" promptText="İçerik girin..." GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>
